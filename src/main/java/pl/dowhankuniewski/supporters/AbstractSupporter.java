@@ -11,6 +11,5 @@ public abstract class AbstractSupporter implements ISupporter {
 
     @Override
     public void changeProtection() {
-
     }
 }
