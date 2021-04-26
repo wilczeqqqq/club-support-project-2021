@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StworzListePole {
-    private int iloscPol;
+    private final int iloscPol;
 
     public StworzListePole(int iloscPol) {
         this.iloscPol = iloscPol;

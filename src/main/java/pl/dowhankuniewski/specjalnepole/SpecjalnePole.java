@@ -3,8 +3,8 @@ package pl.dowhankuniewski.specjalnepole;
 import pl.dowhankuniewski.mapa.Mapa;
 
 public class SpecjalnePole implements ISpecjalnePole {
-    private int positionX;
-    private int positionY;
+    private final int positionX;
+    private final int positionY;
 
     public SpecjalnePole(Mapa mapa) {
         this.positionX = (int)(Math.random()* mapa.getRozmiarMapy());

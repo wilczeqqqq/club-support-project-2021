@@ -1,9 +1,9 @@
 pl/dowhankuniewski/specjalnepole/ISpecjalnePole.java
  pl.dowhankuniewski.specjalnepole.ISpecjalnePole
-pl/dowhankuniewski/czlonkowie/ICzlonek.java
- pl.dowhankuniewski.czlonkowie.ICzlonek
 pl/dowhankuniewski/czlonkowie/ACzlonek.java
  pl.dowhankuniewski.czlonkowie.ACzlonek
+pl/dowhankuniewski/czlonkowie/ICzlonek.java
+ pl.dowhankuniewski.czlonkowie.ICzlonek
 pl/dowhankuniewski/mapa/IMapa.java
  pl.dowhankuniewski.mapa.IMapa
 pl/dowhankuniewski/czlonkowie/KMWCzlonek.java

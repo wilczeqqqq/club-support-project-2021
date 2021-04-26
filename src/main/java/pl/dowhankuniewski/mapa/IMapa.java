@@ -2,7 +2,7 @@ package pl.dowhankuniewski.mapa;
 
 public interface IMapa {
 
-    public int getRozmiarMapy();
+    int getRozmiarMapy();
 
-    public void setRozmiarMapy(int rozmiarMapy);
+    void setRozmiarMapy(int rozmiarMapy);
 }

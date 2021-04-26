@@ -20,5 +20,4 @@ public interface ICzlonek {
 
     int getPredkosc();
 
-    void setPredkosc(int predkosc);
 }

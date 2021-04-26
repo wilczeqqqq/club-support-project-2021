@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class StworzListeCzlonek {
-    private int iloscCzlonkow;
+    private final int iloscCzlonkow;
 
     public StworzListeCzlonek(int iloscCzlonkow) {
         this.iloscCzlonkow = iloscCzlonkow;
