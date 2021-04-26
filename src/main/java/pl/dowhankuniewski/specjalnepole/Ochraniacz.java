@@ -1,4 +1,4 @@
 package pl.dowhankuniewski.specjalnepole;
 
-public class Ochraniacz {
+public class Ochraniacz extends ASpecjalnePole {
 }
