@@ -6,6 +6,9 @@ import pl.dowhankuniewski.specjalnepole.ISpecjalnePole;
 import pl.dowhankuniewski.stworzliste.StworzListeCzlonek;
 import pl.dowhankuniewski.stworzliste.StworzListePole;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,21 +28,32 @@ public class Symulacja {
 
     public void wykonajRuch() {
         for (ICzlonek czlonek : czlonkowieLista) {
-
-            if (((int)(Math.random()*99+1)) > 50) {
+            if (((int) (Math.random() * 99 + 1)) > 50) {
                 czlonek.setPositionX(czlonek.getPositionX() + czlonek.getPredkosc());
+                if (czlonek.getPositionX() > mapa.getRozmiarMapy()) {
+                    czlonek.setPositionX(czlonek.getPositionX() - czlonek.getPredkosc());
+                }
             }
 
-            if (((int)(Math.random()*99+1)) > 50) {
+            if (((int) (Math.random() * 99 + 1)) > 50) {
                 czlonek.setPositionX(czlonek.getPositionX() - czlonek.getPredkosc());
+                if (czlonek.getPositionX() > mapa.getRozmiarMapy()) {
+                    czlonek.setPositionX(czlonek.getPositionX() + czlonek.getPredkosc());
+                }
             }
 
-            if (((int)(Math.random()*99+1)) > 50) {
+            if (((int) (Math.random() * 99 + 1)) > 50) {
                 czlonek.setPositionY(czlonek.getPositionY() + czlonek.getPredkosc());
+                if (czlonek.getPositionY() > mapa.getRozmiarMapy()) {
+                    czlonek.setPositionY(czlonek.getPositionX() - czlonek.getPredkosc());
+                }
             }
 
-            if (((int)(Math.random()*99+1)) > 50) {
+            if (((int) (Math.random() * 99 + 1)) > 50) {
                 czlonek.setPositionY(czlonek.getPositionY() - czlonek.getPredkosc());
+                if (czlonek.getPositionY() > mapa.getRozmiarMapy()) {
+                    czlonek.setPositionY(czlonek.getPositionX() + czlonek.getPredkosc());
+                }
             }
         }
     }
@@ -86,15 +100,37 @@ public class Symulacja {
         }
     }
 
+    public void zapisLogowDoPliku() {
+        int KMP=0, KMW=0, chronieni=0, debug=0;
+        for (ICzlonek czlonek : czlonkowieLista) {
+            if (czlonek.getPoparcie().equals("KMP")) {
+                KMP++;
+            } else {
+                KMW++;
+            }
+
+            if (czlonek.getCzyChroniony()) {
+                chronieni++;
+            }
+
+            if (czlonek.getPositionX() > mapa.getRozmiarMapy() || czlonek.getPositionY() > mapa.getRozmiarMapy()) {
+                debug++;
+            }
+        }
+
+        System.out.println("KMP:" + KMP + " KMW:" + KMW + " Chronieni:" + chronieni + " Debug(should be 0):" + debug);
+    }
+
     public void startSymulacji(){
         for(int iter=0; iter<maxIter; iter++) {
             wykonajRuch();
             sprawdzWejscieNaPole();
             sprawdzSpotkanieCzlonkow();
+            zapisLogowDoPliku();
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -159,6 +195,9 @@ public class Symulacja {
         StworzListeCzlonek stworzListeCzlonek = new StworzListeCzlonek(iloscCzlonkow);
 
         Symulacja symulacja = new Symulacja(mapa, stworzListeCzlonek, stworzListePole, iloscIteracji, predkosc);
+
+        PrintStream plik = new PrintStream("./outFile.txt");
+        System.setOut(plik);
 
         symulacja.startSymulacji();
 

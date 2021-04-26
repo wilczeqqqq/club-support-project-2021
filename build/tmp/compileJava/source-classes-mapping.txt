@@ -16,7 +16,7 @@ pl/dowhankuniewski/stworzliste/StworzListePole.java
  pl.dowhankuniewski.stworzliste.StworzListePole
 pl/dowhankuniewski/czlonkowie/KMPCzlonek.java
  pl.dowhankuniewski.czlonkowie.KMPCzlonek
-pl/dowhankuniewski/Symulacja.java
- pl.dowhankuniewski.Symulacja
 pl/dowhankuniewski/mapa/Mapa.java
  pl.dowhankuniewski.mapa.Mapa
+pl/dowhankuniewski/Symulacja.java
+ pl.dowhankuniewski.Symulacja
