@@ -8,7 +8,6 @@ import pl.dowhankuniewski.stworzliste.StworzListePole;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -59,16 +58,25 @@ public class Symulacja {
     }
 
     public void sprawdzSpotkanieCzlonkow() {
+        int KMP=0, KMW=0;
+        for (ICzlonek czlonekLicznik : czlonkowieLista) {
+            if (czlonekLicznik.getPoparcie().equals("KMP")) {
+                KMP++;
+            } else {
+                KMW++;
+            }
+        }
+
         for (ICzlonek czlonek : czlonkowieLista) {
             for (ICzlonek czlonek2 : czlonkowieLista) {
                 if (czlonek.getPositionX() == czlonek2.getPositionX() && czlonek.getPositionY() == czlonek2.getPositionY() && !czlonek.getPoparcie().equals(czlonek2.getPoparcie())) {
                     if (!czlonek.getCzyChroniony()) {
                         if (czlonek.getPoparcie().equals("KMP")) {
-                            if (((int)(Math.random()*99+1)) > 50) {
+                            if (((int)(Math.random()*99+1)) <= (KMW*100/czlonkowieLista.size())) {
                                 czlonek.setPoparcie("KMW");
                             }
                         } else {
-                            if (((int)(Math.random()*99+1)) > 50) {
+                            if (((int)(Math.random()*99+1)) <= (KMP*100/czlonkowieLista.size())) {
                                 czlonek.setPoparcie("KMP");
                             }
                         }
@@ -76,11 +84,11 @@ public class Symulacja {
 
                     if (!czlonek2.getCzyChroniony()) {
                         if (czlonek2.getPoparcie().equals("KMP")) {
-                            if (((int)(Math.random()*99+1)) > 50) {
+                            if (((int)(Math.random()*99+1)) <= (KMW*100/czlonkowieLista.size())) {
                                 czlonek2.setPoparcie("KMW");
                             }
                         } else {
-                            if (((int)(Math.random()*99+1)) > 50) {
+                            if (((int)(Math.random()*99+1)) <= (KMP*100/czlonkowieLista.size())) {
                                 czlonek2.setPoparcie("KMP");
                             }
                         }
@@ -88,7 +96,7 @@ public class Symulacja {
                 }
             }
         }
-    } //WIP (do zrobienia prawdopodobieństwo)
+    }
 
     public void sprawdzWejscieNaPole() {
         for (ICzlonek czlonek : czlonkowieLista) {
@@ -101,7 +109,7 @@ public class Symulacja {
     }
 
     public void zapisLogowDoPliku() {
-        int KMP=0, KMW=0, chronieni=0, debug=0;
+        int KMP=0, KMW=0, chronieniKMP=0, chronieniKMW=0, suma;
         for (ICzlonek czlonek : czlonkowieLista) {
             if (czlonek.getPoparcie().equals("KMP")) {
                 KMP++;
@@ -109,16 +117,18 @@ public class Symulacja {
                 KMW++;
             }
 
-            if (czlonek.getCzyChroniony()) {
-                chronieni++;
+            if (czlonek.getCzyChroniony() && czlonek.getPoparcie().equals("KMP")) {
+                chronieniKMP++;
             }
 
-            if (czlonek.getPositionX() > mapa.getRozmiarMapy() || czlonek.getPositionY() > mapa.getRozmiarMapy()) {
-                debug++;
+            if (czlonek.getCzyChroniony() && czlonek.getPoparcie().equals("KMW")) {
+                chronieniKMW++;
             }
         }
 
-        System.out.println("KMP:" + KMP + " KMW:" + KMW + " Chronieni:" + chronieni + " Debug(should be 0):" + debug);
+        suma = chronieniKMP + chronieniKMW;
+
+        System.out.println("KMP/Chronieni:" + KMP + "/" + chronieniKMP + " - - - KMW/Chronieni:" + KMW + "/" + chronieniKMW + " - - - Chronieni - suma:" + suma);
     }
 
     public void startSymulacji(){
@@ -134,11 +144,11 @@ public class Symulacja {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj rozmiar mapy nie mniejszy niz 100");
+        System.out.println("Podaj rozmiar mapy nie wiekszy niz 100");
         int rozmiarMapy;
         for (;;) {
             rozmiarMapy = scanner.nextInt();
-            if (rozmiarMapy < 100) {
+            if (rozmiarMapy > 100) {
                 System.out.println("Podano zly wymiar. Sprobuj ponownie.\n");
             } else {
                 break;
