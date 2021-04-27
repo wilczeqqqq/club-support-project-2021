@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 
 public class Symulacja {
-    Mapa mapa;
-    List<ICzlonek> czlonkowieLista;
-    List<ISpecjalnePole> specjalnePoleLista;
-    int maxIter;
+    private final Mapa mapa;
+    private final List<ICzlonek> czlonkowieLista;
+    private final List<ISpecjalnePole> specjalnePoleLista;
+    private final int maxIter;
 
     public Symulacja(Mapa mapa, StworzListeCzlonek stworzListeCzlonek, StworzListePole stworzListePole, int maxIter, int predkosc) {
         this.mapa = mapa;
