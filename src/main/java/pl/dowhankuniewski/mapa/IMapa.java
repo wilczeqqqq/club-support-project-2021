@@ -4,5 +4,4 @@ public interface IMapa {
 
     int getRozmiarMapy();
 
-    void setRozmiarMapy(int rozmiarMapy);
 }

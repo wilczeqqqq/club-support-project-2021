@@ -20,4 +20,7 @@ public interface ICzlonek {
 
     int getPredkosc();
 
+    boolean getCechaSpecjalna();
+
+    void setPredkosc(int predkosc);
 }

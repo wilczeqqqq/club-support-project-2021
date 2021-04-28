@@ -25,7 +25,7 @@ public class Symulacja {
         this.maxIter = maxIter;
     }
 
-    public void wykonajRuch() {
+    private void wykonajRuch() {
         for (ICzlonek czlonek : czlonkowieLista) {
             if (((int) (Math.random() * 99 + 1)) > 50) {
                 czlonek.setPositionX(czlonek.getPositionX() + czlonek.getPredkosc());
@@ -57,7 +57,7 @@ public class Symulacja {
         }
     }
 
-    public void sprawdzSpotkanieCzlonkow() {
+    private void sprawdzSpotkanieCzlonkow() {
         int KMP=0, KMW=0;
         for (ICzlonek czlonekLicznik : czlonkowieLista) {
             if (czlonekLicznik.getPoparcie().equals("KMP")) {
@@ -98,7 +98,7 @@ public class Symulacja {
         }
     }
 
-    public void sprawdzWejscieNaPole() {
+    private void sprawdzWejscieNaPole() {
         for (ICzlonek czlonek : czlonkowieLista) {
             for (ISpecjalnePole pole : specjalnePoleLista) {
                 if (czlonek.getPositionX() == pole.getPositionX() && czlonek.getPositionY() == pole.getPositionY()) {
@@ -108,7 +108,19 @@ public class Symulacja {
         }
     }
 
-    public void zapisLogowDoPliku() {
+    private void sprawdzCechySpecjalne() {
+        for (ICzlonek czlonek : czlonkowieLista) {
+            if (czlonek.getCechaSpecjalna()) {
+                if (czlonek.getPoparcie().equals("KMP")) {
+                    czlonek.setPredkosc((int)(czlonek.getPredkosc() * 0.5));
+                } else {
+                    czlonek.setPredkosc((int)(czlonek.getPredkosc() * 1.5));
+                }
+            }
+        }
+    }
+
+    private void zapisLogowDoPliku() {
         int KMP=0, KMW=0, chronieniKMP=0, chronieniKMW=0, suma;
         for (ICzlonek czlonek : czlonkowieLista) {
             if (czlonek.getPoparcie().equals("KMP")) {
@@ -132,6 +144,7 @@ public class Symulacja {
     }
 
     public void startSymulacji(){
+        sprawdzCechySpecjalne();
         for(int iter=0; iter<maxIter; iter++) {
             wykonajRuch();
             sprawdzWejscieNaPole();

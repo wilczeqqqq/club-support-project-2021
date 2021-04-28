@@ -4,7 +4,7 @@ import pl.dowhankuniewski.mapa.Mapa;
 import pl.dowhankuniewski.specjalnepole.ISpecjalnePole;
 import pl.dowhankuniewski.specjalnepole.SpecjalnePole;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class StworzListePole {
@@ -15,7 +15,7 @@ public class StworzListePole {
     }
 
     public List<ISpecjalnePole> stworzListePole(Mapa mapa) {
-        List<ISpecjalnePole> lista = new ArrayList<>();
+        List<ISpecjalnePole> lista = new LinkedList<>();
 
         for (int i=0; i<iloscPol; i++) {
             lista.add(new SpecjalnePole(mapa));

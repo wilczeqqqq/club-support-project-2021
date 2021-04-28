@@ -7,7 +7,7 @@ public abstract class ACzlonek implements ICzlonek {
     protected boolean czyChroniony = false;
     protected int positionX;
     protected int positionY;
-    protected final int predkosc;
+    protected int predkosc;
 
     public ACzlonek(String poparcie, Mapa mapa, int predkosc) {
         this.poparcie = poparcie;
@@ -60,5 +60,10 @@ public abstract class ACzlonek implements ICzlonek {
     @Override
     public int getPredkosc() {
         return predkosc;
+    }
+
+    @Override
+    public void setPredkosc(int predkosc) {
+        this.predkosc = predkosc;
     }
 }

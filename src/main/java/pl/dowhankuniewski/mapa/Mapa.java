@@ -9,11 +9,8 @@ public class Mapa implements IMapa {
 
     @Override
     public int getRozmiarMapy() {
+
         return rozmiarMapy;
     }
-
-    @Override
-    public void setRozmiarMapy(int rozmiarMapy) {
-        this.rozmiarMapy = rozmiarMapy;
-    }
 }
+
