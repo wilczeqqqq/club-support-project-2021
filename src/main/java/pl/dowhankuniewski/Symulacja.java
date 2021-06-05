@@ -203,44 +203,44 @@ public class Symulacja {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj rozmiar mapy nie wiekszy niz 100");
+        System.out.println("Podaj rozmiar mapy w przedziale [10 ; 100]");
         int rozmiarMapy;
         for (;;) {
             rozmiarMapy = scanner.nextInt();
-            if (rozmiarMapy > 100) {
-                System.out.println("Podano zly wymiar. Sprobuj ponownie.\n");
+            if (rozmiarMapy > 100 || rozmiarMapy < 10) {
+                System.out.println("Podano niedozwolony wymiar. Sprobuj ponownie.\n");
             } else {
                 break;
             }
         }
 
-        System.out.println("Podaj ilosc czlonkow w klubach nie wieksza niz " + (rozmiarMapy*rozmiarMapy)/2);
+        System.out.println("Podaj ilosc czlonkow na klub w przedziale [1 ; " + (rozmiarMapy*rozmiarMapy)/2 + "]");
         int iloscCzlonkow;
         for (;;) {
             iloscCzlonkow = scanner.nextInt();
-            if (iloscCzlonkow > (rozmiarMapy*rozmiarMapy)/2) {
-                System.out.println("Podano za duza ilosc czlonkow. Sprobuj ponownie.\n");
+            if (iloscCzlonkow > (rozmiarMapy*rozmiarMapy)/2 || iloscCzlonkow < 1) {
+                System.out.println("Podano niedozwolona ilosc czlonkow. Sprobuj ponownie.\n");
             } else {
                 break;
             }
         }
 
-        System.out.println("Podaj predkosc poruszania sie czlonkow klubow po mapie nie mniejsza niz 1");
+        System.out.println("Podaj predkosc poruszania sie czlonkow klubow po mapie w przedziale [1 ; " + (rozmiarMapy-1) + "]");
         int predkosc;
         for (;;) {
             predkosc = scanner.nextInt();
-            if (predkosc < 1) {
-                System.out.println("Podano za mala predkosc. Sprobuj ponownie.\n");
+            if (predkosc < 1 || predkosc > (rozmiarMapy-1)) {
+                System.out.println("Podano niedozwolona predkosc. Sprobuj ponownie.\n");
             } else {
                 break;
             }
         }
 
-        System.out.println("Podaj ilosc pol specjalnych na mapie");
+        System.out.println("Podaj ilosc pol specjalnych na mapie w przedziale [0 ; " + rozmiarMapy*rozmiarMapy + "]");
         int iloscPol;
         for (;;) {
             iloscPol = scanner.nextInt();
-            if (iloscPol < 0) {
+            if (iloscPol < 0 || iloscPol > rozmiarMapy*rozmiarMapy) {
                 System.out.println("Podano niedozwolona ilosc. Sprobuj ponownie.\n");
             } else {
                 break;

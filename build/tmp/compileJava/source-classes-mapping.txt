@@ -1,5 +1,3 @@
-pl/dowhankuniewski/specjalnepole/ISpecjalnePole.java
- pl.dowhankuniewski.specjalnepole.ISpecjalnePole
 pl/dowhankuniewski/czlonkowie/ACzlonek.java
  pl.dowhankuniewski.czlonkowie.ACzlonek
 pl/dowhankuniewski/czlonkowie/ICzlonek.java
@@ -18,5 +16,7 @@ pl/dowhankuniewski/czlonkowie/KMPCzlonek.java
  pl.dowhankuniewski.czlonkowie.KMPCzlonek
 pl/dowhankuniewski/mapa/Mapa.java
  pl.dowhankuniewski.mapa.Mapa
+pl/dowhankuniewski/specjalnepole/ISpecjalnePole.java
+ pl.dowhankuniewski.specjalnepole.ISpecjalnePole
 pl/dowhankuniewski/Symulacja.java
  pl.dowhankuniewski.Symulacja
