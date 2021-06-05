@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'pl.dowhankuniewski'
-version '0.8.5'
+version '1.0.0'
 
 repositories {
     mavenCentral()

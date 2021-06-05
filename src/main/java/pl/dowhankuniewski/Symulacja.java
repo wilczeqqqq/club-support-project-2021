@@ -11,13 +11,30 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * Klasa 'Symulacja' reprezentująca proces symulacyjny całego programu.
+ * @author Filip Dowhan, Jakub Kuniewski
+ * @version 1.0.0 - 05.06.2021
+ */
 public class Symulacja {
+    /** Mapa, na której rozgrywa się symulacja. */
     private final Mapa mapa;
+    /** Lista obiektów członków klubów. */
     private final List<ICzlonek> czlonkowieLista;
+    /** Lista obiektów pól specjalnych. */
     private final List<ISpecjalnePole> specjalnePoleLista;
+    /** Ilość iteracji symulacji. */
     private final int maxIter;
 
+    /**
+     * Konstruktor obiektu 'Symulacja'
+     * @param mapa Obiekt mapy, na której rozgrywa się symulacja.
+     * @see Symulacja
+     * @param stworzListeCzlonek Dostarcza listę członków klubów.
+     * @param stworzListePole Dostarcza listę pól specjalnych.
+     * @param maxIter Określa maksymalną ilość iteracji.
+     * @param predkosc Określa prędkość podstawową poruszających się obiektów.
+     */
     public Symulacja(Mapa mapa, StworzListeCzlonek stworzListeCzlonek, StworzListePole stworzListePole, int maxIter, int predkosc) {
         this.mapa = mapa;
         czlonkowieLista = stworzListeCzlonek.stworzListeCzlonkowie(mapa, predkosc);
@@ -25,6 +42,11 @@ public class Symulacja {
         this.maxIter = maxIter;
     }
 
+    /**
+     * Wykonuje ruch o ilość jednostek równą nadanej prędkości.
+     * Sprawdza, czy obiekt nie wyszedł poza granice mapy.
+     * Jeśli obiekt potencjalnie wyszedł poza granice, wykonuje ruch przeciwny.
+     */
     private void wykonajRuch() {
         for (ICzlonek czlonek : czlonkowieLista) {
             if (((int) (Math.random() * 99 + 1)) > 50) {
@@ -57,6 +79,10 @@ public class Symulacja {
         }
     }
 
+    /**
+     * Obsługuje spotkania obiektów na tym samym polu.
+     * Przeprowadza dialog kończący się zmianą poglądów lub brakiem zmiany.
+     */
     private void sprawdzSpotkanieCzlonkow() {
         int KMP=0, KMW=0;
         for (ICzlonek czlonekLicznik : czlonkowieLista) {
@@ -98,6 +124,10 @@ public class Symulacja {
         }
     }
 
+    /**
+     * Obsługuje najście obiektów na pole specjalne.
+     * Nadaje status chronionego, jeżeli naszedł.
+     */
     private void sprawdzWejscieNaPole() {
         for (ICzlonek czlonek : czlonkowieLista) {
             for (ISpecjalnePole pole : specjalnePoleLista) {
@@ -108,6 +138,10 @@ public class Symulacja {
         }
     }
 
+    /**
+     * Sprawdza posiadanie cechy specjalnej przez obiekty.
+     * Jeśli posiadają, nadaje odpowiednie stałe wzmocnienia lub osłabienia.
+     */
     private void sprawdzCechySpecjalne() {
         for (ICzlonek czlonek : czlonkowieLista) {
             if (czlonek.getCechaSpecjalna()) {
@@ -120,6 +154,9 @@ public class Symulacja {
         }
     }
 
+    /**
+     * Zapisuje logi symulacji w odpowiednim formacie do pliku 'outFile.txt'.
+     */
     private void zapisLogowDoPliku() {
         int KMP=0, KMW=0, chronieniKMP=0, chronieniKMW=0, suma;
         for (ICzlonek czlonek : czlonkowieLista) {
@@ -143,6 +180,9 @@ public class Symulacja {
         System.out.println("KMP/Chronieni:" + KMP + "/" + chronieniKMP + " - - - KMW/Chronieni:" + KMW + "/" + chronieniKMW + " - - - Chronieni - suma:" + suma);
     }
 
+    /**
+     * Operuje całą symulacją, wywołując odpowiednie metody i sterując ilością iteracji.
+     */
     public void startSymulacji(){
         sprawdzCechySpecjalne();
         for(int iter=0; iter<maxIter; iter++) {
@@ -153,6 +193,12 @@ public class Symulacja {
         }
     }
 
+    /**
+     * Metoda 'main' symulatora.
+     * Odpowiada za obsługę danych wprowadzanych przez użytkownika oraz wywołanie odpowiednich konstruktorów krytycznych dla symulacji.
+     * @param args Standardowy parametr metody 'main'.
+     * @throws FileNotFoundException Błąd spowodowany brakiem możliwości utworzenia pliku 'outFile.txt'.
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         Scanner scanner = new Scanner(System.in);
