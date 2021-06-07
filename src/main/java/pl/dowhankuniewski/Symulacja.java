@@ -225,11 +225,11 @@ public class Symulacja {
             }
         }
 
-        System.out.println("Podaj predkosc poruszania sie czlonkow klubow po mapie w przedziale [1 ; " + (rozmiarMapy-1) + "]");
+        System.out.println("Podaj predkosc poruszania sie czlonkow klubow po mapie w przedziale [1 ; " + (rozmiarMapy/4) + "]");
         int predkosc;
         for (;;) {
             predkosc = scanner.nextInt();
-            if (predkosc < 1 || predkosc > (rozmiarMapy-1)) {
+            if (predkosc < 1 || predkosc > (rozmiarMapy/4)) {
                 System.out.println("Podano niedozwolona predkosc. Sprobuj ponownie.\n");
             } else {
                 break;
