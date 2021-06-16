@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pl.dowhankuniewski.specjalnepole.SpecjalnePoleTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-06-16T13:57:39" hostname="WILCZEQQQQ-PC" time="0.002">
+  <properties/>
+  <testcase name="getPositionX()" classname="pl.dowhankuniewski.specjalnepole.SpecjalnePoleTest" time="0.002"/>
+  <testcase name="getPositionY()" classname="pl.dowhankuniewski.specjalnepole.SpecjalnePoleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

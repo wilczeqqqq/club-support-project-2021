@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pl.dowhankuniewski.czlonkowie.ACzlonekTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-06-16T13:57:39" hostname="WILCZEQQQQ-PC" time="0.023">
+  <properties/>
+  <testcase name="setPoparcie()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.017"/>
+  <testcase name="getPoparcie()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="setPositionX()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="setPositionY()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.001"/>
+  <testcase name="getCzyChroniony()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="setPredkosc()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="getPredkosc()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.001"/>
+  <testcase name="setCzyChroniony()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="getPositionX()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.0"/>
+  <testcase name="getPositionY()" classname="pl.dowhankuniewski.czlonkowie.ACzlonekTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

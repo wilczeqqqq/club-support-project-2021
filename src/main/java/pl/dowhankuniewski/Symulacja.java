@@ -11,10 +11,11 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
 
+//Program zaleca się uruchamiać z pliku .jar dołączonego w /build/libs !!!
 /**
  * Klasa 'Symulacja' reprezentująca proces symulacyjny całego programu.
  * @author Filip Dowhan, Jakub Kuniewski
- * @version 1.0.0 - 05.06.2021
+ * @version 1.0.3 - 16.06.2021
  */
 public class Symulacja {
     /** Mapa, na której rozgrywa się symulacja. */
