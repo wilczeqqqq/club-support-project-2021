@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pl.dowhankuniewski.mapa.MapaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-16T13:57:39" hostname="WILCZEQQQQ-PC" time="0.001">
-  <properties/>
-  <testcase name="getRozmiarMapy()" classname="pl.dowhankuniewski.mapa.MapaTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

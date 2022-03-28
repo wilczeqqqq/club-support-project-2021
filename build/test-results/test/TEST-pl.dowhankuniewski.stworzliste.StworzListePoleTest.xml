@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="pl.dowhankuniewski.stworzliste.StworzListePoleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-16T13:57:39" hostname="WILCZEQQQQ-PC" time="0.0">
-  <properties/>
-  <testcase name="stworzListePole()" classname="pl.dowhankuniewski.stworzliste.StworzListePoleTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
