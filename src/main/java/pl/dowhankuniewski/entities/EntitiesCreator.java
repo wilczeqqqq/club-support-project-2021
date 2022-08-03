@@ -4,35 +4,36 @@ import pl.dowhankuniewski.map.SimulationMap;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 
 public class EntitiesCreator {
     public static List<Member> createMembersList(SimulationMap simulationMap, int speed, int amount) {
-        List<Member> list = new LinkedList<>();
+        List<Member> listKMP = IntStream.range(0, amount)
+                .mapToObj(member -> Member.builder()
+                        .clubChoice("KMP")
+                        .speed(speed)
+                        .simulationMap(simulationMap)
+                        .build())
+                .collect(Collectors.toList());
 
-        for (int i = 0; i< amount; i++) {
-            list.add(Member.builder()
-                            .clubChoice("KMP")
-                            .speed(speed)
-                            .simulationMap(simulationMap)
-                            .build());
-            list.add(Member.builder()
-                            .clubChoice("KMW")
-                            .speed(speed)
-                            .simulationMap(simulationMap)
-                            .build());
-        }
-        return list;
+        List<Member> listKWM = IntStream.range(0, amount)
+                .mapToObj(member -> Member.builder()
+                        .clubChoice("KWM")
+                        .speed(speed)
+                        .simulationMap(simulationMap)
+                        .build())
+                .collect(Collectors.toList());
+
+        return Stream.concat(listKMP.stream(), listKWM.stream()).collect(Collectors.toList());
     }
 
     public static List<SpecialField> createSpecialFieldList(SimulationMap simulationMap, int amount) {
-        List<SpecialField> list = new LinkedList<>();
-
-        for (int i = 0; i< amount; i++) {
-            list.add(SpecialField.builder()
-                            .simulationMap(simulationMap)
-                            .build());
-        }
-        return list;
+        return IntStream.range(0, amount)
+                        .mapToObj(specialField -> new SpecialField(simulationMap))
+                        .collect(Collectors.toList()
+                );
     }
 }
