@@ -2,3 +2,4 @@
 .idea
 .gradle
 outFile.txt
+/build/
